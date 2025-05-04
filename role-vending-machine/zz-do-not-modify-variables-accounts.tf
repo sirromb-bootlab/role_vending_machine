@@ -2,39 +2,9 @@
 # To rebuild variables-accounts.tf, execute the generate_providers_and_account_vars GitHub workflow.
 
 
-variable "account_CommonServices" {
-  type    = string
-  default = "585768172690"
-}
-
-variable "account_AFT" {
-  type    = string
-  default = "266735827575"
-}
-
-variable "account_Production" {
-  type    = string
-  default = "430118835578"
-}
-
-variable "account_Log_Archive" {
-  type    = string
-  default = "448049824253"
-}
-
 variable "account_IamAdmin" {
   type    = string
   default = "124355666125"
-}
-
-variable "account_Network" {
-  type    = string
-  default = "302263067326"
-}
-
-variable "account_Security" {
-  type    = string
-  default = "443370693739"
 }
 
 variable "account_management" {
@@ -42,13 +12,48 @@ variable "account_management" {
   default = "257394473711"
 }
 
-variable "account_Development" {
+variable "account_AFT" {
   type    = string
-  default = "841162668015"
+  default = "266735827575"
+}
+
+variable "account_Network" {
+  type    = string
+  default = "302263067326"
+}
+
+variable "account_Production" {
+  type    = string
+  default = "430118835578"
+}
+
+variable "account_Security" {
+  type    = string
+  default = "443370693739"
+}
+
+variable "account_Log_Archive" {
+  type    = string
+  default = "448049824253"
+}
+
+variable "account_CommonServices" {
+  type    = string
+  default = "585768172690"
 }
 
 variable "account_Audit" {
   type    = string
   default = "615299732810"
+}
+
+variable "account_WebNewName" {
+  type    = string
+  default = "739275470586"
+}
+
+variable "account_Development" {
+  type    = string
+  default = "841162668015"
 }
 

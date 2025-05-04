@@ -3,58 +3,10 @@
 
 
 provider "aws" {
-  alias  = "CommonServices"
-  region = "us-east-1"
-  assume_role {
-    role_arn = "arn:aws:iam::585768172690:role/github-assume-role-rvm-readonly"
-  }
-}
-
-provider "aws" {
-  alias  = "AFT"
-  region = "us-east-1"
-  assume_role {
-    role_arn = "arn:aws:iam::266735827575:role/github-assume-role-rvm-readonly"
-  }
-}
-
-provider "aws" {
-  alias  = "Production"
-  region = "us-east-1"
-  assume_role {
-    role_arn = "arn:aws:iam::430118835578:role/github-assume-role-rvm-readonly"
-  }
-}
-
-provider "aws" {
-  alias  = "Log_Archive"
-  region = "us-east-1"
-  assume_role {
-    role_arn = "arn:aws:iam::448049824253:role/github-assume-role-rvm-readonly"
-  }
-}
-
-provider "aws" {
   alias  = "IamAdmin"
   region = "us-east-1"
   assume_role {
     role_arn = "arn:aws:iam::124355666125:role/github-assume-role-rvm-readonly"
-  }
-}
-
-provider "aws" {
-  alias  = "Network"
-  region = "us-east-1"
-  assume_role {
-    role_arn = "arn:aws:iam::302263067326:role/github-assume-role-rvm-readonly"
-  }
-}
-
-provider "aws" {
-  alias  = "Security"
-  region = "us-east-1"
-  assume_role {
-    role_arn = "arn:aws:iam::443370693739:role/github-assume-role-rvm-readonly"
   }
 }
 
@@ -67,10 +19,50 @@ provider "aws" {
 }
 
 provider "aws" {
-  alias  = "Development"
+  alias  = "AFT"
   region = "us-east-1"
   assume_role {
-    role_arn = "arn:aws:iam::841162668015:role/github-assume-role-rvm-readonly"
+    role_arn = "arn:aws:iam::266735827575:role/github-assume-role-rvm-readonly"
+  }
+}
+
+provider "aws" {
+  alias  = "Network"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::302263067326:role/github-assume-role-rvm-readonly"
+  }
+}
+
+provider "aws" {
+  alias  = "Production"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::430118835578:role/github-assume-role-rvm-readonly"
+  }
+}
+
+provider "aws" {
+  alias  = "Security"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::443370693739:role/github-assume-role-rvm-readonly"
+  }
+}
+
+provider "aws" {
+  alias  = "Log_Archive"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::448049824253:role/github-assume-role-rvm-readonly"
+  }
+}
+
+provider "aws" {
+  alias  = "CommonServices"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::585768172690:role/github-assume-role-rvm-readonly"
   }
 }
 
@@ -79,6 +71,22 @@ provider "aws" {
   region = "us-east-1"
   assume_role {
     role_arn = "arn:aws:iam::615299732810:role/github-assume-role-rvm-readonly"
+  }
+}
+
+provider "aws" {
+  alias  = "WebNewName"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::739275470586:role/github-assume-role-rvm-readonly"
+  }
+}
+
+provider "aws" {
+  alias  = "Development"
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::841162668015:role/github-assume-role-rvm-readonly"
   }
 }
 
