@@ -32,6 +32,7 @@ locals {
 #######################################################################
 module "tagging_module" {
   # checkov:skip=CKV_TF_1: commit hashing is superfluous for this case
+  # checkov:skip=CKV_TF_2: commit hashing is superfluous for this case
   # For details on exact tag validation, see the repo below
   source = "github.com/sirromb-bootlab/terraform-aws-tagging-module"
   # Required tags
