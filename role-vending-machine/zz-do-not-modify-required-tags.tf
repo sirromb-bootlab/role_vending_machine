@@ -33,7 +33,7 @@ locals {
 module "tagging_module" {
   # checkov:skip=CKV_TF_1: commit hashing is superfluous for this case
   # For details on exact tag validation, see the repo below
-  source = "github.com/sirromb-bootlab/terraform-aws-tagging-module//terraform?ref=v1.0.0"
+  source = "github.com/sirromb-bootlab/terraform-aws-tagging-module//terraform"
   # Required tags
   Project     = local.Project     # Which platform/project created this infra
   Deployment  = local.Deployment  # Mechanism used to deploy the resource (eg. Terraform)
