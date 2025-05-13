@@ -58,18 +58,20 @@ jobs:
           terraform_version: ${{ steps.dotenv.outputs.TERRAFORM_VERSION }}
           terraform_wrapper: false  # This ensures that TF output complies with JSON
 
-      # - name: Get GitHub Apps Token # This enables access to Terraform modules in internal/private repos
-      #   id: get_token
-      #   uses: machine-learning-apps/actions-app-token@master
-      #   with:
-      #     APP_PEM: ${{ secrets.ORG_REPO_READ_PRIVATE_KEY }}
-      #     APP_ID: ${{ secrets.ORG_REPO_READ_APP_ID }}
-      #   # Doc: https://github.com/machine-learning-apps/actions-app-token
-      # - name: Enable Terraform Git actions to use Github Apps Token
-      #   uses: de-vri-es/setup-git-credentials@v2.0.10
-      #   with:
-      #     credentials: https://git:${{ steps.get_token.outputs.app_token }}@github.com
-      #   # Doc: https://maelvls.dev/gh-actions-with-tf-private-repo/
+      # This step generates a GitHub App token, which can be used to clone repos/TF modules using HTTPS
+      # This step relies on reading the GitHub App private key from the Organization-wide secrets
+      - id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.READONLY_APP_ID }} # App ID of the Readonly GitHub App for the GitHub organization
+          private-key: ${{ secrets.READONLY_APP_PRIVATE_KEY }}
+          owner: sirromb-bootlab
+
+      - name: Enable Terraform Git actions to use Github Apps Token
+        uses: de-vri-es/setup-git-credentials@v2
+        with:
+          credentials: https://git:${{ steps.app-token.outputs.token }}@github.com
+          
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check
