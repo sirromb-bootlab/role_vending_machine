@@ -1,0 +1,22 @@
+# This workflow enables the RVM pipeline to be remotely triggered by a Lambda that has permissions to invoke the repo webhook.
+# This is useful for re-running the pipeline automatically when the Organization structure changes.
+name: "Remote Terraform Workflow"
+
+permissions:
+  id-token: write
+  contents: write # This is required for actions/checkout
+  pull-requests: write
+  actions: read
+  security-events: write
+
+on:
+  # Allow for runs via webhook
+  repository_dispatch:
+    types: "start_example"
+
+jobs:
+  remote_terraform:
+    name: "Remote TF"
+    runs-on: "ubuntu-latest"
+    steps:
+      - run: echo "hello orld"
